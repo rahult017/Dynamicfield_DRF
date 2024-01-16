@@ -1,7 +1,7 @@
 from django.db import models, connection
 
 def get_field_type():
-    return models.CharField(max_length=255)
+    return models.CharField(max_length=255,null=True,blank=TR)
 
 def create_dynamic_table(model_name, data):
     model_name = model_name.replace(" ", "_")
