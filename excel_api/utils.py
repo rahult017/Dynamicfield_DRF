@@ -23,6 +23,13 @@ def create_dynamic_table(model_name, data):
     # Create the table in the database
     with connection.schema_editor() as schema_editor:
         schema_editor.create_model(dynamic_model)
+        
+    for index, row in data.iterrows():
+        instance = dynamic_model()
+        for column_name in data.columns:
+            field_name = column_name.replace(" ", "_")
+            setattr(instance, field_name, row[column_name])
+        instance.save()
 
     return dynamic_model
 
