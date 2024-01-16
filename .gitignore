@@ -8,5 +8,3 @@ __pycache__/
 
 # Ignore virtual environment
 venv/
-
-db.sqlite3
